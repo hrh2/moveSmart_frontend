@@ -1,0 +1,187 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+*{
+     padding: 0;
+     margin: 0;
+}
+::-webkit-scrollbar {
+     width: 0px !important;
+     border-radius:25em;
+     height:0px;
+}
+::-webkit-scrollbar:hover {
+     width: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+      border-radius:25em;
+     background-color: #d4d7d6 !important;
+
+}
+
+::-webkit-scrollbar-thumb {
+      border-radius:25em;
+     background-color: #053a58 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+     background-color: #c3eaf3 !important;
+}
+.SideBar_container ,.Content_container{
+     padding: 0 !important;
+     margin: 0 !important;
+}
+.sidebarGen,.sidebarPr {
+     width: 100% !important;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background-color: #010023!important;
+     padding:0 !important;
+     margin:0 !important;
+}
+.sidebarGen hr{
+     color: #02007A;
+     border-top:3px solid #02007A;
+}
+.sidebarGen a{
+     border-radius:3em;
+     width: 80%;
+}
+.sidebarGen a:hover{
+   background-color:#06389A;
+}
+.sidebarGen a:active{
+  background-color: #06389A;
+}
+.nav-tabs,.nav-tabs a{
+ font-size:1.1em;
+ background-color: #010023;
+ color:#02007A!important;
+}
+.nav-tabs a{
+ padding:1em 3em !important;
+}
+.locator{
+     border-radius: 0 2em 0 0 !important;
+}
+.book-a{
+     border-top-left-radius: 0px!important;
+}
+.book-a:active{
+  background-color: #010023;
+  color: #010023 !important;
+}
+.Exchange-icon{
+     border:2px solid #010023;
+     border-radius: 50em;
+}
+.book-btn{
+     border-radius: 25em!important;
+     background: #010023!important;
+     color: aliceblue;
+}
+.history-h1,.Chat-h1{
+     border-left:.2em solid #010023;
+}
+.Chat-h1-2{
+     border-right: .2em solid #010023;
+}
+.fst-italic-p{
+     color: rgb(105, 99, 99)!important;
+}
+.icon1{
+     color:grey!important;
+}
+.Content_container{
+     max-width:100% !important;
+}
+.rotate {
+     transition: transform 0.1s ease-in-out;
+}
+
+.rotate:active {
+     transform: rotate(90deg);
+}
+.form-select option {
+     padding-left: 1em;
+     background-size: 2em;
+     background-repeat: no-repeat;
+     background-position: center left;
+}
+
+.Logo{
+     width:7em;
+}
+.feedback-input{
+     height:15vh!important;
+     border-radius:10em !important;
+}
+.message-input{
+     height:15vh!important;
+     border-radius:2em!important;
+}
+.a{
+     color:#010023 !important;
+     font-size: 1.3em;
+}
+@media (max-width: 767px) {
+  .headers{
+    font-size:1em;
+  }
+.nav-tabs,.nav-tabs a{
+ font-size:1em;
+ background-color: #010023;
+ color:#02007A!important;
+}
+.nav-tabs a{
+ padding:1em 2em !important;
+}
+.input-group>input,button,.Exchange-icon{
+  height: 5vh;
+}
+.Select{
+     font-size: 0.8rem;
+     width:100vw;
+}
+option{
+     font-size:0.3em;
+}
+
+.form-select:focus option{
+     border:0;
+}
+.book-btn{
+     padding: 0 0 15px 0 !important;
+}
+.Chat-h1,.Chat-h1-2{
+     font-size:.9rem;
+}
+/*.Footer>div{
+   display: block!important;
+   width: 100% !important;
+}*/
+}
+
+@media only screen and (max-width: 768px) {
+     .testimonial p {
+       font-size: 0.8rem;
+       line-height: 1.5rem;
+     }
+   
+     .testimonial h6 {
+       font-size: 1rem;
+     }
+   }
+   
+   @media only screen and (max-width: 576px) {
+     .testimonial img {
+       width: 60px !important;
+       height: 60px !important;
+       object-fit: cover;
+     }
+   }
+   

@@ -1,0 +1,18 @@
+<svg width="1440" height="900" preserveAspectRatio="none" viewBox="0 0 1440 900">
+  <g mask="url(#SvgjsMask2062)" fill="none">
+    <rect width="1440" height="900" x="0" y="0" fill="url(#SvgjsRadialGradient2063)"></rect>
+    <path d="M 0,392 C 144,342 432,170.8 720,142 C 1008,113.2 1296,226.8 1440,248L1440 900L0 900z" fill="rgba(3, 28, 79, 1)"></path>
+    <path d="M 0,752 C 144,698 432,497 720,482 C 1008,467 1296,638 1440,677L1440 900L0 900z" fill="rgba(5, 57, 114, 1)"></path>
+  </g>
+  <defs>
+    <mask id="SvgjsMask2062">
+      <rect width="1440" height="900" fill="#ffffff"></rect>
+    </mask>
+    <radialGradient cx="50%" cy="50%" r="849.06" gradientUnits="userSpaceOnUse" id="SvgjsRadialGradient2063">
+      <stop stop-color="#0e2a47" offset="0"></stop>
+      <stop stop-color="rgba(0, 32, 73, 1)" offset="0.11"></stop>
+      <stop stop-color="rgba(0, 32, 73, 1)" offset="0.12"></stop>
+      <stop stop-color="rgba(45, 75, 114, 0.83)" offset="1"></stop>
+    </radialGradient>
+  </defs>
+</svg>
