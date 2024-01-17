@@ -17,7 +17,7 @@ export default function Index() {
            const token =localStorage.getItem("moveSmart_station_admin_token");
            Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
            
-           const response = await Axios.get('http://localhost:3050/api/bus');
+           const response = await Axios.get('https://movesmart.onrender.com/api/bus');
            setData(response.data)
          } catch (error) {
              setError(error.response.data.message);

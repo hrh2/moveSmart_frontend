@@ -28,7 +28,7 @@ export default function StationIndex() {
            window.location = "/landing"
           }
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get('http://localhost:3050/api/station/admin');
+        const response = await Axios.get('https://movesmart.onrender.com/api/station/admin');
         setData(response.data);
         setStationName(response.data.name);
       } catch (error) {

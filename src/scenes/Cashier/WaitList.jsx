@@ -19,7 +19,7 @@ export default function Index() {
     async function updateGivenTickets(id){
       try{
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get(`http://localhost:3050/api/tickets/manage/gave-ticket/${id}`);
+        const response = await Axios.get(`https://movesmart.onrender.com/api/tickets/manage/gave-ticket/${id}`);
         setMessage(response.data.message)
           setTimeout(()=>{
               setMessage(null)
@@ -36,7 +36,7 @@ export default function Index() {
     async function fetchData() {
       try {
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get('http://localhost:3050/api/tickets/manage');
+        const response = await Axios.get('https://movesmart.onrender.com/api/tickets/manage');
         setData(response.data.tickets)
         setTitle(response.data.name)
         setGround(response.data.ground)

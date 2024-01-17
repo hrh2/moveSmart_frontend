@@ -28,7 +28,7 @@ export default function BookItem({ details, item,time }) {
     setMessage("");
 
     try {
-      const response = await Axios.post('http://localhost:3050/api/book', data);
+      const response = await Axios.post('https://movesmart.onrender.com/api/book', data);
       setMessage(response.data.message);
     } catch (error) {
       setError(error.response.data.message);

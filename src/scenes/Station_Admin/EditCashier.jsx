@@ -26,7 +26,7 @@ export default function AddStation() {
         async function fetchData(){
             try{
               Axios.defaults.headers.common.Authorization = `Bearer ${token}`
-              const response = await Axios.get(`http://localhost:3050/api/cashier/${id}`);
+              const response = await Axios.get(`https://movesmart.onrender.com/api/cashier/${id}`);
               setData(response.data); 
               setName(response.data.cashierName);
            }catch(error){
@@ -48,7 +48,7 @@ export default function AddStation() {
         event.preventDefault(); // prevent the default form submission behavior
         try { 
             Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-            const response = await Axios.put(`http://localhost:3050/api/cashier/${id}`, data);
+            const response = await Axios.put(`https://movesmart.onrender.com/api/cashier/${id}`, data);
             setMessage(response.data.message);
             
             setTimeout(()=>{

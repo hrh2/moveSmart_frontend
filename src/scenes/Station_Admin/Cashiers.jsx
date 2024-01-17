@@ -20,7 +20,7 @@ export default function Index() {
            
            Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
            
-           const response = await Axios.get('http://localhost:3050/api/cashier');
+           const response = await Axios.get('https://movesmart.onrender.com/api/cashier');
            setData(response.data)
          } catch (error) {
              setError(error.response.data.message);
@@ -80,7 +80,7 @@ export default function Index() {
     const handleDelete =async (id)=>{
       try { 
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.delete(`http://localhost:3050/api/cashier/${id}`);
+        const response = await Axios.delete(`https://movesmart.onrender.com/api/cashier/${id}`);
         setMessage(response.data.message);
         setTimeout(()=>{
            return window.location = "/admin/station/cashiers";

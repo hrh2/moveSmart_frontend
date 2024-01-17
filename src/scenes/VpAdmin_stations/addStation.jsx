@@ -80,7 +80,7 @@ export default function AddStation() {
             }
             const token=localStorage.getItem('moveSmart_vpfancyadmin_token');
             Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-            const response = await Axios.post('http://localhost:3050/api/station', data);
+            const response = await Axios.post('https://movesmart.onrender.com/api/station', data);
             setResponse(response.data.message);
             setTimeout(()=>{
                 window.location = "/vpadmin/station/allStations";

@@ -37,7 +37,7 @@ const EditProfile = () => {
      try {
        const token = await localStorage.getItem("moveSmart_client_token");
        Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-       const response = await Axios.get('http://localhost:3050/api/profile');
+       const response = await Axios.get('https://movesmart.onrender.com/api/profile');
        setData({...response.data,password :null})
        setImageSrc(response.data.image)
      } catch (error) {
@@ -71,7 +71,7 @@ const EditProfile = () => {
         data.image=imageSrc
         const token = await localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
-        const response = await Axios.put('http://localhost:3050/api/profile', data);
+        const response = await Axios.put('https://movesmart.onrender.com/api/profile', data);
         setMessage(response.data.message)
         window.location = "/";
     } catch (error) {

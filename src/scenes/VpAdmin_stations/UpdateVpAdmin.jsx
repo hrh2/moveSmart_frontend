@@ -31,7 +31,7 @@ export default function AddStation() {
           try {
             const token = await localStorage.getItem("moveSmart_vpfancyadmin_token");
             Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-            const response = await Axios.get('http://localhost:3050/api/vpfancyadmin/personal');
+            const response = await Axios.get('https://movesmart.onrender.com/api/vpfancyadmin/personal');
             setData(response.data)
           } catch (error) {
               setError(error.response.data.message);
@@ -52,7 +52,7 @@ export default function AddStation() {
         try {
             var token=localStorage.getItem('moveSmart_vpfancyadmin_token');
             Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-            const response = await Axios.put('http://localhost:3050/api/vpfancyadmin/personal', data);
+            const response = await Axios.put('https://movesmart.onrender.com/api/vpfancyadmin/personal', data);
             token = response.data.token;
             localStorage.setItem('moveSmart_vpfancyadmin_token', token)
             setMessage(response.data.message);
@@ -74,7 +74,7 @@ export default function AddStation() {
                  </Typography>
           <Box className='grid grid-flow-row gap-2'>
               <Box>
-              {show?<PasswordUpdating address={"http://localhost:3050/api/vpfancyadmin/password"}/>:<Form  className='py-2' onSubmit={handleSubmit}> 
+              {show?<PasswordUpdating address={"https://movesmart.onrender.com/api/vpfancyadmin/password"}/>:<Form  className='py-2' onSubmit={handleSubmit}> 
                {error&&<Alert variant="danger" className='text-xs mx-auto '>{error}</Alert>}
                {message&&<Alert variant="success" className='text-xs mx-auto '>{message}</Alert>}
                  <Box className=' mx-auto md:w-4/6 w-5/6 relative h-[3rem] my-3'>

@@ -37,7 +37,7 @@ export default function AddStation() {
             } 
             const token = localStorage.getItem('moveSmart_station_admin_token')
             Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-            const response = await Axios.post('http://localhost:3050/api/user/cashier', data);
+            const response = await Axios.post('https://movesmart.onrender.com/api/user/cashier', data);
             setMessage(response.data.message);
             setTimeout(()=>{
                 window.location = "/admin/station/cashiers";

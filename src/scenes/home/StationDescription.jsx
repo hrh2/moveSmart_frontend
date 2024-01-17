@@ -18,7 +18,7 @@ export default function StationDescription() {
           setLoading(true)
           const token =localStorage.getItem("token");
           Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-          const response = await Axios.get('http://localhost:3050/api/station/linked');
+          const response = await Axios.get('https://movesmart.onrender.com/api/station/linked');
           setData(response.data)
           setLoading(false)
         } catch (error) {

@@ -14,7 +14,7 @@ const CarItem = ({car}) => {
     try {
       const token =localStorage.getItem("moveSmart_client_token");
       Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-      const response = await Axios.get(`http://localhost:3050/api/car/addviews/${car_id}`);
+      const response = await Axios.get(`https://movesmart.onrender.com/api/car/addviews/${car_id}`);
       
         setMessage(response.data.message)
     } catch (error) { 

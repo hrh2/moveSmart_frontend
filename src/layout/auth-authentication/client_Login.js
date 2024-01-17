@@ -24,7 +24,7 @@ const Login = () => {
      const handleSubmit = async (event) => {
           event.preventDefault(); // prevent the default form submission behavior
           try {
-               const response = await Axios.post('http://localhost:3050/api/login', data);
+               const response = await Axios.post('https://movesmart.onrender.com/api/login', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_client_token', token);
                // console.log(token);

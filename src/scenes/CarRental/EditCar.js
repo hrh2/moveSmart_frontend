@@ -44,7 +44,7 @@ export default function EditCar() {
       try {
         const token = await localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get(`http://localhost:3050/api/car/update/${id}`);
+        const response = await Axios.get(`https://movesmart.onrender.com/api/car/update/${id}`);
         setData(response.data);
         setImageArray(response.data.images)
 
@@ -110,7 +110,7 @@ const handleSubmit = async (e) => {
         data.images=imageArray
         const token = await localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`; 
-        const response = await Axios.put(`http://localhost:3050/api/car/single/${id}`, data);
+        const response = await Axios.put(`https://movesmart.onrender.com/api/car/single/${id}`, data);
         setMessage(response.data.message)
 
         setTimeout(()=>{

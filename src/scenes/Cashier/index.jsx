@@ -18,7 +18,7 @@ export default function StationIndex() {
       try {
         const token = localStorage.getItem("moveSmart_station_cashier_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.get("http://localhost:3050/api/dash/cashier");
+        const response = await Axios.get("https://movesmart.onrender.com/api/dash/cashier");
         setData(response.data.buses);
       } catch (error) {
         setError(error.response.data.message);

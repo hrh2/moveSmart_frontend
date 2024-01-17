@@ -17,7 +17,7 @@ const RecommendCarCard = (props) => {
     try {
       const token = await localStorage.getItem("token");
       Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-      const response = await Axios.delete(`http://localhost:3050/api/car/single/${car_id}`);
+      const response = await Axios.delete(`https://movesmart.onrender.com/api/car/single/${car_id}`);
       setMessage(response.data.message);
       alert(response.data.message);
       window.location = "/cars/mine";

@@ -93,7 +93,7 @@ const handleSubmit = async (event) => {
         data.images=imageArray
         const token=localStorage.getItem('moveSmart_client_token');
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-        const response = await Axios.post('http://localhost:3050/api/car', data);
+        const response = await Axios.post('https://movesmart.onrender.com/api/car', data);
         setMessage(response.data.msg)
         setTimeout(()=>{
             setMessage(false)

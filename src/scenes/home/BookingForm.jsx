@@ -69,7 +69,7 @@ function MyForm() {
         useEffect(() => {
           async function fetchData() {
             try {
-              const response = await Axios.get('http://localhost:3050/api/book');
+              const response = await Axios.get('https://movesmart.onrender.com/api/book');
               setRoutes(response.data)
             } catch (error) {
                 setError(error.response.data.message);
@@ -81,7 +81,7 @@ function MyForm() {
           event.preventDefault(); // prevent the default form submission behavior
           try {
                setLoading(true)
-               const response = await Axios.post('http://localhost:3050/api/book/available', data);
+               const response = await Axios.post('https://movesmart.onrender.com/api/book/available', data);
                setAvailableTickets(response.data);
                setTimeout(()=>{
                     setLoading(false)

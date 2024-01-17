@@ -25,7 +25,7 @@ const Login = () => {
      const handleSubmit = async (event) => {
           event.preventDefault(); // prevent the default form submission behavior
           try {
-               const response = await Axios.post('http://localhost:3050/api/login/cashier', data);
+               const response = await Axios.post('https://movesmart.onrender.com/api/login/cashier', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_station_cashier_token', token);
                Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
