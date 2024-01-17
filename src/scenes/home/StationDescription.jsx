@@ -30,8 +30,8 @@ export default function StationDescription() {
     },[])
   return (
   <>
-    {data.length > 0 ?<Box className='transition-transform duration-500' id="accessibleRoute">
-      <Box>
+    {/* {data.length > 0 ?<Box className='transition-transform duration-500' id="accessibleRoute">
+      <Box> */}
          <h1 className='md:w-4/5 mx-auto w-5/6 py-3 text-xl font-bold'>Accessible BUS Routes</h1>
          {loading&&<Loader/>}
          <Box className="mx-auto md:w-4/5  sm:w-5/6 w-11/12 p-3 grid md:grid-cols-3 grid-cols-1 gap-3 box-shadow rounded-lg " backgroundColor={colors.primary[600]}>
@@ -40,12 +40,12 @@ export default function StationDescription() {
             return <RouteCard key={station._id} name={station.name} links={linksId} stations={data}/>
           })}
          </Box>
-      </Box>
-    </Box>:<Box className=" flex items-center justify-center p-2">
+      {/* </Box> */}
+    {/* </Box>:<Box className=" flex items-center justify-center p-2">
        <Typography variant='h4'>
         Currently no Registered station
        </Typography>
-      </Box>}
+      </Box>} */}
   </>
   )
 }
