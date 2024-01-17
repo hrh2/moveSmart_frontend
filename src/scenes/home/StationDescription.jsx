@@ -30,7 +30,7 @@ export default function StationDescription() {
     },[])
   return (
   <>
-    {data.length !== 0 ?<Box className='transition-transform duration-500' id="accessibleRoute">
+    {data.length != 0 ?<Box className='transition-transform duration-500' id="accessibleRoute">
       <Box>
          <h1 className='md:w-4/5 mx-auto w-5/6 py-3 text-xl font-bold'>Accessible BUS Routes</h1>
          {loading&&<Loader/>}

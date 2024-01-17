@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Logo from '../../img/logo.png'
 import { FaBell} from 'react-icons/fa'
 import Notification from '../../components/Notification'
+import Loader from '../../components/Loader'
 
 export default function Header(props) {
   const [showNotification, setShowSidebar] = useState(false);
@@ -17,9 +18,10 @@ export default function Header(props) {
         ></div>
         <div className='grid grid-cols-2 gap-2  text-white  w-24 absolute right-4 top-3'>
           <FaBell size={30} onClick={toggleNotification}/>
+        {props.image?
         <a href='/userProfile' className=' aspect-square w-[3rem] bg-cover border-white border shadow-lg bg-center rounded-full'
           style={{ backgroundImage: `url(${props.image})` }}
-        > </a>
+        > </a>:<Loader/>}
         </div>
     </div>
     </>
