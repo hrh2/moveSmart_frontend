@@ -31,11 +31,11 @@ export default function profile_discription() {
         <span>Email not verified</span>
         <div className="grid grid-cols-3 grid-rows-2 gap-4 md:w-5/6 mx-auto mt-4">
           <p className='md:py-4 sm:py-3  col-start-1 bg-blue-900 rounded-xl text-white flex gap-2 items-center justify-center'>
-            <FaUser size={17} className='text-yellow-400' /><span className='text-[.7em]'>{data.username}</span>
+            <FaUser size={17} className='text-yellow-400' /><span className='text-[.7em]'> {data.username}</span>
           </p>
           <p className='md:py-4 sm:py-3 py-2 bg-blue-900 col-start-3 rounded-xl text-white flex gap-2 items-center justify-center'>
             <FaPhoneAlt size={17} className='text-yellow-400' />
-            <span className='text-[.7em]'>{data.phone}</span>
+            <span className='text-[.7em]'> {data.phone}</span>
           </p>
           <p className='py-2 sm:py-3 md:py-4 col-start-2 bg-blue-900 rounded-xl text-white flex gap-3 items-center justify-center'>
             <MdOutlineAlternateEmail size={17} className='text-yellow-400 ' /><span className='text-[.7em]'>{data.email}</span>
