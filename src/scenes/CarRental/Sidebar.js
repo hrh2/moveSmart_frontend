@@ -13,8 +13,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import EditIcon from '@mui/icons-material/Edit';
 import {PiCarFill} from "react-icons/pi";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-import profile from '../../img/prof.jpg'
-
+import Loader from '../../components/Loader'
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -90,12 +89,13 @@ const SideBar = ({image,name}) => {
             <Link to="/cars/profile">
              <Box mb="25px">
               <Box display="flex" justifyContent="center" alignItems="center">
-                <Box
+                {image&&<Box
                   width="100px"
                   height="100px"
                   className="bg-cover bg-center"
                   style={{ cursor: "pointer", borderRadius: "50%" ,backgroundImage:`url(${image})`}}
-                />
+                />}
+                {!image&&<Loader/>}
               </Box>
               <Box textAlign="center">
                 <Typography
