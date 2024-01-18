@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import profile from '../img/prof.jpg';
 import { FaUser, FaPhoneAlt } from 'react-icons/fa';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
+import Axios from 'axios';
 
 
 export default function Profile_discription() {
