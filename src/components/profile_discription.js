@@ -4,7 +4,7 @@ import { FaUser, FaPhoneAlt } from 'react-icons/fa';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 
 
-export default function profile_discription() {
+export default function Profile_discription() {
   const [data, setData] = useState({})
   // eslint-disable-next-line 
   const [error, setError] = useState('')
