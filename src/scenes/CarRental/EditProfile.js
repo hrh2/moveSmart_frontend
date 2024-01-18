@@ -3,6 +3,7 @@ import Axios from "axios";
 import Dropzone from "react-dropzone";
 import { Box,useTheme } from "@mui/material";
 import { tokens } from "../../Contexts/theme";
+import Loader from "../../components/Loader";
 
 import {FaCloudUploadAlt,FaPlus} from "react-icons/fa"
 
@@ -79,6 +80,10 @@ const EditProfile = () => {
     }
 };
   return (
+  <>{data.image==null?
+  <Box>
+  <Loader/>
+  </Box>:
     <form className=" p-2 md:w-4/5 w-full  mx-auto" onSubmit={handleSubmit}>
       <div className="mx-auto w-[10rem] aspect-square">
         <Dropzone onDrop={handleDrop} accept="image/*" >
@@ -182,7 +187,8 @@ const EditProfile = () => {
                   </Box>
         </Box>
       </div>
-    </form>
+    </form>}
+    </>
   );
 };
 
