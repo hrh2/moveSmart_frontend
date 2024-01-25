@@ -8,15 +8,13 @@ import BaseCard from "../BaseCard/BaseCard";
 
 const ComboBoxAutocomplete = () => {
   return (
-    <BaseCard title="Urugendo rwawe/your journey">
       <Autocomplete
         disablePortal
         id="combo-box-demo"
         options={top100Films}
         fullWidth
-        renderInput={(params) => <TextField {...params} label="Combo Box" />}
+        renderInput={(params) => <TextField {...params} label="your" />}
       />
-    </BaseCard>
   );
 };
 
