@@ -12,6 +12,7 @@ import { AiTwotoneCalendar } from 'react-icons/ai';
 // eslint-disable-next-line 
 import AvailableTickets from './AvailableTickets';
 import Loader from '../../components/Loader'
+import { ComboBoxAutocomplete } from '../../components/AutoComplete/ComboBoxAutocomplete';
 
 function MyForm() {
      const theme = useTheme();
@@ -125,6 +126,7 @@ function MyForm() {
                                         placeholder="to"
                                         required />
                               </Box>
+                              
                               <Box className=' w-full'>
                                    <input
                                         type="Date"
@@ -161,6 +163,23 @@ function MyForm() {
                                </Box>}
                          </ul>}
                          </Box>
+                    </Box>
+                    <Box>
+                         <Grid container spacing={0}>
+                         {/* ------------------------- row 1 ------------------------- */}
+                              <Grid
+                                   item
+                                   xs={12}
+                                   lg={4}
+                                   sm={6}
+                                   sx={{
+                                   display: "flex",
+                                   alignItems: "stretch",
+                                   }}
+                              >
+                              <ComboBoxAutocomplete />
+                              </Grid>
+                         </Grid>
                     </Box>
                </form>
                {loading&&<Loader/>}
