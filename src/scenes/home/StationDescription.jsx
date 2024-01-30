@@ -1,9 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import Axios from 'axios';
 import { tokens } from "../../Contexts/theme";
-import { Box,useTheme,Typography} from "@mui/material";
+import { Box,useTheme} from "@mui/material";
 import RouteCard from "./RouteCard"
-import Loader from '../../components/Loader'
 import LinearLoader from '../../components/LinearLoader'
 
 export default function StationDescription() {
