@@ -41,10 +41,17 @@ export default function Profile_discription() {
   console.log('you refused to get location')
   }
   
-  async function getLocationCity(lat,long){
-   const promise= await Axios.get(`http://api.weatherapi.com/v1/current.json?key=${weatherkey}&q=${lat},${long}&aqi=yes`)
-   return await promise.json()
+  async function getLocationCity(lat, long) {
+    try {
+      const response = await Axios.get(`https://api.weatherapi.com/v1/current.json?key=${weatherkey}&q=${lat},${long}&aqi=yes`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+      throw error; // Rethrow the error if needed
+    }
   }
+  
+  
   // eslint-disable-next-line
   async function removeToken(tokenKey) {
     await localStorage.removeItem(tokenKey);
