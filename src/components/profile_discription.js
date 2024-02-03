@@ -31,7 +31,6 @@ export default function Profile_discription() {
   
   async function getLocation(position){
    const location= await getLocationCity(position.coords.latitude,position.coords.longitude);
-   console.log(location)
    setLocation(location.location.name)
    setCountry(location.location.country)
    setRegion(location.location.region)
@@ -47,7 +46,7 @@ export default function Profile_discription() {
       return response.data;
     } catch (error) {
       console.error('Error fetching weather data:', error);
-      throw error; // Rethrow the error if needed
+      throw error; 
     }
   }
   
