@@ -15,17 +15,18 @@ export default function Profile_discription() {
   useEffect(() => {
     async function fetchData() {
       try {
-        navigator.geolocation.getCurrentPosition(getLocation,failedLocation)
         // await removeToken('moveSmart_client_token');
         const token =await localStorage.getItem("moveSmart_client_token");
         Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
         const response = await Axios.get('https://movesmart.onrender.com/api/profile');
+        navigator.geolocation.getCurrentPosition(getLocation,failedLocation)
         setData(response.data)
       } catch (error) {
           setError(error.response.data.message);
       }
     }
     fetchData()
+   // eslint-disable-next-line 
   }, [])
   
   async function getLocation(position){
@@ -37,11 +38,11 @@ export default function Profile_discription() {
 
   }
   function failedLocation(){
-  console.log('refused to get location')
+  console.log('you refused to get location')
   }
   
   async function getLocationCity(lat,long){
-   const promise= await fetch(`http://api.weatherapi.com/v1/current.json?key=${weatherkey}&q=${lat},${long}&aqi=yes`)
+   const promise= await Axios.get(`http://api.weatherapi.com/v1/current.json?key=${weatherkey}&q=${lat},${long}&aqi=yes`)
    return await promise.json()
   }
   // eslint-disable-next-line
