@@ -6,9 +6,11 @@ import{TbLanguage}from 'react-icons/tb'
 import{BsFillPersonCheckFill} from 'react-icons/bs'
 import SVGImage from "../../img/blob-haikei.svg"
 import SVGImage1 from "../../img/blob-scene-haikei.svg"
+import Loader from '../../components/Loader';
 
 
 const Login = () => {
+     const [loader,setLoader] = useState(false)
      const [data, setData] = useState({
           stationNumber: '',
           cashierID:null,
@@ -25,15 +27,18 @@ const Login = () => {
      const handleSubmit = async (event) => {
           event.preventDefault(); // prevent the default form submission behavior
           try {
+               setLoader(true)
                const response = await Axios.post('https://movesmart.onrender.com/api/login/cashier', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_station_cashier_token', token);
                Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
                setOk(true);
                setTimeout(()=>{
+                    setLoader(false);
                     window.location = "/cashier";
                },1000)
           } catch (error) {
+               setLoader(false)
                setError(error.response.data.message);
           }
      };
@@ -57,7 +62,7 @@ const Login = () => {
                          <div className='flex items-center justify-center'>
                               {ok&&<BsFillPersonCheckFill size={28} className=' text-green-500'/>}
                          </div>
-                         <Form onSubmit={handleSubmit}>
+                         {!loader?<Form onSubmit={handleSubmit}>
                               <Box className="grid grid-flow-row gap-2">
                                     <input
                                         type="text"
@@ -91,7 +96,7 @@ const Login = () => {
                                    </button>
                               </div>
                               </Box>
-                         </Form>
+                         </Form>:<Loader/>}
                          <p>I need a personal account  <a href="/signup" className="link-info">Sign UP</a></p>
                     </div>
                     {error && <Alert variant="danger" className=' absolute bottom-2'>{error}</Alert>}

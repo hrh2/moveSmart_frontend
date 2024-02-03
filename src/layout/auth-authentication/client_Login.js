@@ -6,9 +6,11 @@ import{TbLanguage}from 'react-icons/tb'
 import { FcGoogle } from 'react-icons/fc'
 import SVGImage from "../../img/blob-haikei.svg"
 import SVGImage1 from "../../img/blob-scene-haikei.svg"
+import Loader from '../../components/Loader';
 
 
 const Login = () => {
+     const [loader,setLoader] = useState(false)
      const [data, setData] = useState({
           email: '',
           password: '',
@@ -24,19 +26,17 @@ const Login = () => {
      const handleSubmit = async (event) => {
           event.preventDefault(); // prevent the default form submission behavior
           try {
+               setLoader(true)
                const response = await Axios.post('https://movesmart.onrender.com/api/login', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_client_token', token);
                // console.log(token);
                Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+               setLoader(false)
                window.location = "/";
           } catch (error) {
-               console.error(error);
-               if (error.response && error.response.status >= 400 && error.response.status <= 500) {
-                    setError(error.response.data.message);
-               } else {
-                    setError('An unexpected error occurred. Please try again later.');
-               }
+               setLoader(false)
+               setError(error.response.data.message);
           }
      };
 
@@ -56,7 +56,7 @@ const Login = () => {
                     </div>
                     <div className="p-5 text-center ">
                          <h1 className="text-center mb-4 fw-bold">Login</h1>
-                         <Form onSubmit={handleSubmit}>
+                         {!loader?<Form onSubmit={handleSubmit}>
                               <Box className="grid grid-flow-row gap-2">
                                    <input
                                         type="email"
@@ -82,7 +82,7 @@ const Login = () => {
                                    </button>
                               </div>
                               </Box>
-                         </Form>
+                         </Form>:<Loader/>}
                          <button type="button" className="flex justify-center items-center gap-2 mt-2 mx-auto p-2 px-4 bg-slate-400 rounded-3xl">continue with<FcGoogle size={18} /></button>
                          <p>New to MoveSmart  <a href="/signup" className="link-info">Sign up</a></p>
                     </div>

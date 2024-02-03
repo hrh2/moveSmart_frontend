@@ -5,9 +5,11 @@ import Axios from 'axios';
 import{TbLanguage}from 'react-icons/tb'
 import SVGImage from "../../img/blob-haikei.svg"
 import SVGImage1 from "../../img/blob-scene-haikei.svg"
+import Loader from '../../components/Loader';
 
 
 const Login = () => {
+     const[loader,setLoader] = useState(false)
      const [data, setData] = useState({
           adminID: null,
           password: '',
@@ -23,12 +25,15 @@ const Login = () => {
      const handleSubmit = async (event) => {
           event.preventDefault(); // prevent the default form submission behavior
           try {
+               setLoader(true)
                const response = await Axios.post('https://movesmart.onrender.com/api/login/vpfancyadmin', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_vpfancyadmin_token', token);
                Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+               setLoader(false)
                window.location = "/vpadmin/station";
           } catch (error) {
+             setLoader(false)
              setError(error.response.data.message);
           }
      };
@@ -49,7 +54,7 @@ const Login = () => {
                     </div>
                     <div className="p-5 text-center ">
                          <h1 className="text-center mb-4 fw-bold">Vp Fancy Admin</h1>
-                         <Form onSubmit={handleSubmit}>
+                         {!loader?<Form onSubmit={handleSubmit}>
                               <Box className="grid grid-flow-row gap-2">
                                     <input
                                         type="number"
@@ -74,7 +79,7 @@ const Login = () => {
                                    </button>
                               </div>
                               </Box>
-                         </Form>
+                         </Form>:<Loader/>}
                          <p>Want to Create Personal Account <a href="/signup" className="link-info">Sign up</a></p>
                     </div>
                     {error && <Alert variant="danger" className=' absolute bottom-2'>{error}</Alert>}

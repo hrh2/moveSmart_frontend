@@ -7,10 +7,12 @@ import {FaPlus,FaCloudUploadAlt} from "react-icons/fa";
 import { TbLanguage } from "react-icons/tb"
 import SVGImage from "../../img/wave-haikei.svg"
 import SVGImage1 from "../../img/blob-scatter-haikei.svg"
+import Loader from "../../components/Loader"
 import Axios from "axios";
 
 const Signup = () => {
      // const [file, setFile] = useState(null);
+     const [loader,setLoader] =useState(false)
      const [data, setData] = useState({
           firstName: '',
           lastName: '',
@@ -33,13 +35,16 @@ const Signup = () => {
      const handleSubmit = async (e) => {
           e.preventDefault();
           try {
+               setLoader(true)
                data.image=image
                const response = await Axios.post('https://movesmart.onrender.com/api/user', data);
                const token = response.data.token;
                localStorage.setItem('moveSmart_client_token', token);
                Axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+               setLoader(false)
                window.location = "/";
           } catch (error) {
+            setLoader(false)
             setError(error.response.data.message);
           }
      };
@@ -83,7 +88,7 @@ const Signup = () => {
                     <div className="p-5 text-center">
                          <h1 className="font-bold text-lg">Sign Up</h1>
                          {error && <Alert variant="danger">{error}</Alert>}
-                         <Form onSubmit={handleSubmit} >
+                         {!loader?<Form onSubmit={handleSubmit} >
                          <div className="mx-auto w-[10rem] aspect-square">
                               <Dropzone onDrop={handleDrop} accept="image/*" >
                                    {({ getRootProps, getInputProps }) => (
@@ -138,6 +143,7 @@ const Signup = () => {
                                         name="phone"
                                         value={data.phone}
                                         onChange={handleChange}
+                                        autoComplete="off"
                                         className="p-3 bg-transparent border-b-2"
                                         placeholder="Phone Number"
                                         required
@@ -145,6 +151,7 @@ const Signup = () => {
                                    <input
                                         type="text"
                                         name="cardNumber"
+                                        autoComplete="off"
                                         value={data.cardNumber}
                                         onChange={handleChange}
                                         className="p-3 bg-transparent border-b-2"
@@ -154,6 +161,7 @@ const Signup = () => {
                                    <input
                                         type="text"
                                         name="username"
+                                        autoComplete="off"
                                         value={data.username}
                                         onChange={handleChange}
                                         className="p-3 bg-transparent border-b-2"
@@ -163,6 +171,7 @@ const Signup = () => {
                                    <input
                                         type="password"
                                         name="password"
+                                        autoComplete="new-password"
                                         value={data.password}
                                         onChange={handleChange}
                                         className="p-3 bg-transparent border-b-2"
@@ -174,12 +183,11 @@ const Signup = () => {
                                    <button variant="secondary" type="reset" className="">reset</button>
                                    <button variant="primary" type="submit" className="bg-primary rounded-xl p-2 w-1/3 mx-auto">Sign Up</button>
                               </div>
-                         </Form>
-                         <button type="button" className="flex justify-center items-center gap-2 mt-2 mx-auto p-2 px-4 bg-slate-400 rounded-3xl">continue with<FcGoogle size={18} /></button>
+                         </Form>:<Loader/>}
+                        <button type="button" className="flex justify-center items-center gap-2 mt-2 mx-auto p-2 px-4 bg-slate-400 rounded-3xl">continue with<FcGoogle size={18} /></button>
                          <p>Have an Account? <a href="/login" className="link-info">log in</a></p>
                    </div>
                </div>
-
         </div>
      );
 };

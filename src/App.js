@@ -137,7 +137,7 @@ function App() {
             {/* Signup  and User creation Routes */}
             <Route path="/signup" exact element={<Signup />} />
             {/* Profile Routes */}
-            <Route path="/userProfile" exact element={<Profile />} />
+            <Route path="/userProfile" exact element={isLocalUser()?<Profile />:redirectToLanding()} />
 
             <Route path="/vpadmin/station" element={isVpFancyAdmin() ? <VpAdminStation /> : redirectToLanding()}>
               <Route index element={<VpAdminStationDashboard />} />
