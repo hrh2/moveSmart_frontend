@@ -27,8 +27,9 @@ import CabsBookingForm from './layout/Home/Cabs';
 // Contact Us
 import ContactUs from './layout/chats/ContactUs';
 // Use profile
-import Profile from './layout/user_profile/Main';
+import Profile from './layout/Profile/Main';
 import EditProfile from './scenes/CarRental/EditProfile'
+import Payment from './layout/Profile/Payment';
 // Rental Cars Services
 import Cars from './layout/CarRental/main'
 import AllCars from './scenes/CarRental/index'
@@ -119,6 +120,7 @@ function App() {
             <Route path="/" element={isLocalUser() ? <Home /> : redirectToLanding()} >
               <Route index element={<Booking/>}/>
               <Route path="/cabs" element={<CabsBookingForm/>} />
+              <Route path="/add-payment-visa-card" element={<Payment/>} />
               <Route path="/cars" exact element={<Cars/>}>
                 <Route index element={<AllCars/>} />
                 <Route path="/cars/single/:id" element={<SingleCar />} />
